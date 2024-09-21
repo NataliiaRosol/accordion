@@ -1,11 +1,17 @@
 .wrapper{
-  display: flex;
   height: 100vh;
-  width: 100vw;
+  }
+.container{
+  width: 700px;
+  margin: 0 auto;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
+}
+.enableMultiSelectionBtn{
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 .accordeon{
   width: 500px;
