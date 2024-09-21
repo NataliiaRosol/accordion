@@ -9,9 +9,16 @@ export default function Accordeon(){
   const [selected, setSelected] = useState(null);
   const [enableMultiSelection, setEnableMultiSelection] = useState(false);
   const [multipleSelected, setMultipleSelected] = useState([]);
+  
+  useEffect(()=> {
+    if(enableMultiSelection === false) setMultipleSelected([]);
+    else setSelected(null)
+      
+  }, [selected, enableMultiSelection]);
+  
 
   function handleSingleSelection(getId){
-    setSelected(getId === selected ? null : getId)
+    setSelected(getId === selected ? null : getId);
   }
 
   function handleMultiSelection(getId){
@@ -23,10 +30,11 @@ export default function Accordeon(){
     setMultipleSelected(copyMultipleSelected);
     
   }
+  
   return(
     <div className="wrapper">
       <div className="container">
-      <button onClick={ ()=> setEnableMultiSelection(!enableMultiSelection)} className='enableMultiSelectionBtn'>{enableMultiSelection ? 'Multiselection enabled' :  'Enable multiselection'}</button>
+      <button onClick={()=> setEnableMultiSelection(!enableMultiSelection)} className='enableMultiSelectionBtn'>{enableMultiSelection ? 'Multiselection enabled' :  'Enable multiselection'}</button>
       <div className="accordeon"> 
         {
           data && data.length > 0 ? 
